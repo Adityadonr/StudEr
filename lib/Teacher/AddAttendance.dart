@@ -12,6 +12,7 @@ class _AddAttendanceState extends State<AddAttendance> {
   String _standard = '1';
   String _division = 'A';
 
+  // Example student data; ideally, this should be fetched dynamically
   List<Map<String, dynamic>> _students = [
     {'name': 'Student 1', 'present': false},
     {'name': 'Student 2', 'present': false},
@@ -21,6 +22,7 @@ class _AddAttendanceState extends State<AddAttendance> {
   @override
   void initState() {
     super.initState();
+    // Initialize with current date
     _attendanceDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   }
 
@@ -53,6 +55,7 @@ class _AddAttendanceState extends State<AddAttendance> {
           key: _formKey,
           child: ListView(
             children: <Widget>[
+              // Attendance Date Field with Date Picker
               GestureDetector(
                 onTap: () => _selectDate(context),
                 child: AbsorbPointer(
@@ -75,6 +78,7 @@ class _AddAttendanceState extends State<AddAttendance> {
               SizedBox(height: spacing),
               Row(
                 children: [
+                  // Standard Dropdown
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: _standard,
@@ -100,6 +104,7 @@ class _AddAttendanceState extends State<AddAttendance> {
                     ),
                   ),
                   SizedBox(width: spacing),
+                  // Division Dropdown
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: _division,
@@ -131,6 +136,7 @@ class _AddAttendanceState extends State<AddAttendance> {
                 style: textStyle,
               ),
               SizedBox(height: spacing),
+              // Attendance List with Checkboxes
               ..._students.map((student) {
                 return Card(
                   margin: EdgeInsets.symmetric(vertical: spacing / 2),
@@ -149,6 +155,7 @@ class _AddAttendanceState extends State<AddAttendance> {
                 );
               }).toList(),
               SizedBox(height: spacing),
+              // Submit Button
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -159,6 +166,7 @@ class _AddAttendanceState extends State<AddAttendance> {
                     print('Standard: $_standard');
                     print('Division: $_division');
                     print('Students: $_students');
+                    // You can show a dialog or snackbar here for confirmation
                   }
                 },
                 child: Text('Submit'),

@@ -46,6 +46,7 @@ class _AddNotificationState extends State<AddNotification> {
             children: <Widget>[
               Row(
                 children: [
+                  // Standard Dropdown
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: _standard,
@@ -71,6 +72,7 @@ class _AddNotificationState extends State<AddNotification> {
                     ),
                   ),
                   SizedBox(width: spacing),
+                  // Division Dropdown
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: _division,
@@ -95,6 +97,7 @@ class _AddNotificationState extends State<AddNotification> {
                     ),
                   ),
                   SizedBox(width: spacing),
+                  // Class Dropdown
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: _class,
@@ -122,6 +125,7 @@ class _AddNotificationState extends State<AddNotification> {
                 ],
               ),
               SizedBox(height: spacing),
+              // Notification Title Field
               TextFormField(
                 decoration: InputDecoration(labelText: 'Notification Title'),
                 style: textStyle,
@@ -136,6 +140,7 @@ class _AddNotificationState extends State<AddNotification> {
                 },
               ),
               SizedBox(height: spacing),
+              // Notification Content Field
               TextFormField(
                 decoration: InputDecoration(labelText: 'Notification Content'),
                 style: textStyle,
@@ -151,6 +156,7 @@ class _AddNotificationState extends State<AddNotification> {
                 },
               ),
               SizedBox(height: spacing),
+              // Notification Date Field with Date Picker
               GestureDetector(
                 onTap: () => _selectDate(context),
                 child: AbsorbPointer(
@@ -171,6 +177,7 @@ class _AddNotificationState extends State<AddNotification> {
                 ),
               ),
               SizedBox(height: spacing),
+              // Submit Button
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -183,6 +190,7 @@ class _AddNotificationState extends State<AddNotification> {
                     print('Notification Title: $_notificationTitle');
                     print('Notification Content: $_notificationContent');
                     print('Notification Date: $_notificationDate');
+                    // You can show a dialog or snackbar here for confirmation
                   }
                 },
                 child: Text('Submit'),

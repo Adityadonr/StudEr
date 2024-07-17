@@ -17,6 +17,7 @@ class _AddHomeworkState extends State<AddHomework> {
   @override
   void initState() {
     super.initState();
+    // Initialize with current date
     _dueDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   }
 
@@ -51,6 +52,7 @@ class _AddHomeworkState extends State<AddHomework> {
             children: <Widget>[
               Row(
                 children: [
+                  // Standard Dropdown
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: _standard,
@@ -76,6 +78,7 @@ class _AddHomeworkState extends State<AddHomework> {
                     ),
                   ),
                   SizedBox(width: spacing),
+                  // Division Dropdown
                   Expanded(
                     child: DropdownButtonFormField<String>(
                       value: _division,
@@ -102,6 +105,7 @@ class _AddHomeworkState extends State<AddHomework> {
                 ],
               ),
               SizedBox(height: spacing),
+              // Subject Field
               TextFormField(
                 decoration: InputDecoration(labelText: 'Subject'),
                 style: textStyle,
@@ -116,6 +120,7 @@ class _AddHomeworkState extends State<AddHomework> {
                 },
               ),
               SizedBox(height: spacing),
+              // Due Date Field with Date Picker
               GestureDetector(
                 onTap: () => _selectDate(context),
                 child: AbsorbPointer(
@@ -136,6 +141,7 @@ class _AddHomeworkState extends State<AddHomework> {
                 ),
               ),
               SizedBox(height: spacing),
+              // Homework Description Field
               TextFormField(
                 decoration: InputDecoration(labelText: 'Homework Description'),
                 style: textStyle,
@@ -151,6 +157,7 @@ class _AddHomeworkState extends State<AddHomework> {
                 },
               ),
               SizedBox(height: spacing),
+              // Submit Button
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -162,6 +169,7 @@ class _AddHomeworkState extends State<AddHomework> {
                     print('Subject: $_subject');
                     print('Due Date: $_dueDate');
                     print('Homework Description: $_homeworkDescription');
+                    // You can show a dialog or snackbar here for confirmation
                   }
                 },
                 child: Text('Submit'),

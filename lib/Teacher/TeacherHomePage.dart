@@ -3,6 +3,7 @@ import 'AddStudent.dart';
 import 'AddNotification.dart';
 import 'AddAttendance.dart';
 import 'AddHomework.dart';
+import 'AddResult.dart';
 
 class TeacherHomePage extends StatefulWidget {
   @override
@@ -69,6 +70,16 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => AddHomework()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.grade),
+              title: Text('Add Result'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddResult()),
                 );
               },
             ),
